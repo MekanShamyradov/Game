@@ -80,10 +80,10 @@ class Player{
     update(input,deltaTime,enemies){
         //Collision Detection
         enemies.forEach(enemy=>{
-            let dx=(enemy.x+enemy.width/2)-(this.x+this.width/2);
-            let dy=(enemy.y+enemy.height/2)-(this.y+this.height/2);
+            let dx=(enemy.x+enemy.width/2-20)-(this.x+this.width/2);
+            let dy=(enemy.y+enemy.height/2)-(this.y+this.height/2+20);
             let distance=Math.sqrt(dx*dx+dy*dy);
-            if(distance<(enemy.width/2-10)+(this.width/2-10)){
+            if(distance<(enemy.width/3)+(this.width/3)){
                 gameOver=true;
             }
         });
