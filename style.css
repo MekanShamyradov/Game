@@ -1,0 +1,21 @@
+/*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*/
+/*Github Token*/
+body{
+    background-color: black;
+    margin:0;
+    padding:0;
+    
+}
+#canvas1{
+    box-sizing: border-box;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    border: 5px solid white;
+    max-width: 100%;
+    max-height: 100%;
+}
+#playerImage,#backgroundImage,#enemyImage{
+    display: none;
+}
