@@ -255,17 +255,6 @@ function restartGame(){
     gameOver=false;
     animate(0);
 }
-function toggleFullScreen(){
-    if(!document.fullscreenElement){
-        canvas.requestFullscreen().catch(err=>{
-            alert("Error: "+err.message);
-        });
-    }
-    else{
-        document.exitFullscreen();
-    }
-}
-fullScreenButton.addEventListener("click",toggleFullScreen);
 //////////////////////////////
 let input = new InputHandler();
 let player = new Player(canvas.width,canvas.height);
