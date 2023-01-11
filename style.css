@@ -1,5 +1,3 @@
-/*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*/
-/*Github Token*/
 body{
     background-color: black;
     margin:0;
@@ -18,4 +16,12 @@ body{
 }
 #playerImage,#backgroundImage,#enemyImage{
     display: none;
+}
+#fullScreenButton{
+    position: absolute;
+    font-size: 20px;
+    padding: 10px;
+    top: 10px;
+    left: 50%;
+    transform: translate(-50%);
 }

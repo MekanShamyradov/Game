@@ -6,6 +6,7 @@ canvas.height=720;
 let enemies=[];
 let score=0;
 let gameOver=false;
+let fullScreenButton=this.document.getElementById("fullScreenButton");
 //////////////////////////////
 class InputHandler{
     constructor(){
@@ -82,7 +83,7 @@ class Player{
             let dx=(enemy.x+enemy.width/2)-(this.x+this.width/2);
             let dy=(enemy.y+enemy.height/2)-(this.y+this.height/2);
             let distance=Math.sqrt(dx*dx+dy*dy);
-            if(distance<enemy.width/2+this.width/2){
+            if(distance<(enemy.width/2-10)+(this.width/2-10)){
                 gameOver=true;
             }
         });
@@ -133,12 +134,6 @@ class Player{
             this.vy=0;
             this.y=this.gameHeight-this.height;
         }
-        for(let i=0;i<enemies.length;i++){
-            if(this.x<enemies[i].x+enemies[i].width&&this.x+this.width>enemies[i].x&&this.y<enemies[i].y+enemies[i].height&&this.y+this.height>enemies[i].y){
-                
-            }
-        }
-
     }
     onGround(){
         return this.y>=this.gameHeight-this.height
@@ -260,6 +255,17 @@ function restartGame(){
     gameOver=false;
     animate(0);
 }
+function toggleFullScreen(){
+    if(!document.fullscreenElement){
+        canvas.requestFullscreen().catch(err=>{
+            alert("Error: "+err.message);
+        });
+    }
+    else{
+        document.exitFullscreen();
+    }
+}
+fullScreenButton.addEventListener("click",toggleFullScreen);
 //////////////////////////////
 let input = new InputHandler();
 let player = new Player(canvas.width,canvas.height);
